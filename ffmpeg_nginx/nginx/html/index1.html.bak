@@ -1,0 +1,79 @@
+
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+<body>
+<script src="/js/flv.js"></script>
+
+flv uri 1: <input id="video_path1" type="text" style="width: 300px" value="https://10.101.25.18/flv?port=1935&app=myapp&stream=mystream"/>
+<button type="button" onclick="play1()">PLAY</button>
+<br/>
+flv uri 2: <input id="video_path2" type="text" style="width: 300px" value="https://10.101.25.18/flv?port=1935&app=myapp&stream=mystream"/>
+<button type="button"  onclick="play2()">PLAY</button>
+<hr/>
+<video width="640px" height="360px" id="videoElement1"></video>
+<hr/>
+<video width="640px" height="360px" id="videoElement2"></video>
+
+<script>
+    /*if (flvjs.isSupported()) {
+        var videoElement1 = document.getElementById('videoElement1');
+        var videoElement2 = document.getElementById('videoElement2');
+
+        var flvPlayer1 = flvjs.createPlayer({
+            type: 'flv',
+            url: 'http://127.0.0.1:10010/xr/flv',
+        });
+        var flvPlayer2 = flvjs.createPlayer({
+            type: 'flv',
+            url: 'http://127.0.0.1:10010/xr/flv',
+        });
+        flvPlayer1.attachMediaElement(videoElement1);
+        flvPlayer1.load();
+
+        flvPlayer2.attachMediaElement(videoElement2);
+        flvPlayer2.load();
+    }*/
+    //自动播放,浏览器不支持
+    function play1() {
+        if (flvjs.isSupported()) {
+            let path1 = document.getElementById('video_path1').value;
+            var videoElement1 = document.getElementById('videoElement1');
+
+            var flvPlayer1 = flvjs.createPlayer({
+                type: 'flv',
+                url: path1,
+            });
+            flvPlayer1.attachMediaElement(videoElement1);
+            flvPlayer1.load();
+            flvPlayer1.play();
+        }
+
+    }
+
+    //自动播放,浏览器不支持
+    function play2() {
+        if (flvjs.isSupported()) {
+            let path2 = document.getElementById('video_path2').value;
+
+            var videoElement2 = document.getElementById('videoElement2');
+
+            var flvPlayer2 = flvjs.createPlayer({
+                type: 'flv',
+                url: path2,
+            });
+            flvPlayer2.attachMediaElement(videoElement2);
+            flvPlayer2.load();
+            flvPlayer2.play();
+        }
+    }
+</script>
+</body>
+</html>

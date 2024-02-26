@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="utf-8">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+<body>
+<script src="/js/1.6.2/flv.min.js"></script>
+Attention: chrome can only keep no more than <b><i> 6 </i></b> http connections for a single host.
+
+<br/>
+
+flv uri 1: <input id="video_path1" type="text" style="width: 300px" value="/flv?port=1935&app=myapp&stream=mystream1"/>
+<button type="button" onclick="play1()">PLAY</button>
+<br/>
+flv uri 2: <input id="video_path2" type="text" style="width: 300px" value="/flv?port=1935&app=myapp&stream=mystream2"/>
+<button type="button"  onclick="play2()">PLAY</button>
+<br/>
+flv uri 3: <input id="video_path3" type="text" style="width: 300px" value="/flv?port=1935&app=myapp&stream=mystream3"/>
+<button type="button"  onclick="play3()">PLAY</button>
+<br/>
+flv uri 4: <input id="video_path4" type="text" style="width: 300px" value="/flv?port=1935&app=myapp&stream=mystream4"/>
+<button type="button"  onclick="play4()">PLAY</button>
+<br/>
+flv uri 5: <input id="video_path5" type="text" style="width: 300px" value="/flv?port=1935&app=myapp&stream=mystream5"/>
+<button type="button"  onclick="play5()">PLAY</button>
+<br/>
+flv uri 6: <input id="video_path6" type="text" style="width: 300px" value="/flv?port=1935&app=myapp&stream=mystream6"/>
+<button type="button"  onclick="play6()">PLAY</button>
+<br/>
+flv uri 7: <input id="video_path7" type="text" style="width: 300px" value="/flv?port=1935&app=myapp&stream=mystream7"/>
+<button type="button"  onclick="play7()">PLAY</button>
+<br/>
+flv uri 8: <input id="video_path8" type="text" style="width: 300px" value="/flv?port=1935&app=myapp&stream=mystream8"/>
+<button type="button"  onclick="play8()">PLAY</button>
+
+
+<hr/>
+<video width="640px" height="360px" id="videoElement1"></video>
+<video width="640px" height="360px" id="videoElement2"></video>
+<video width="640px" height="360px" id="videoElement3"></video>
+<video width="640px" height="360px" id="videoElement4"></video>
+<hr/>
+<video width="640px" height="360px" id="videoElement5"></video>
+<video width="640px" height="360px" id="videoElement6"></video>
+<video width="640px" height="360px" id="videoElement7"></video>
+<video width="640px" height="360px" id="videoElement8"></video>
+<hr/>
+<hr/>
+
+<script>
+
+var url = document.location.toString();
+var arrUrl = url.split("://");
+var schema = arrUrl[0];
+
+var domain = document.domain;
+
+var urlPrefix = schema+"://"+domain;
+
+console.log("--->"+urlPrefix);
+
+var flvPlayer1, flvPlayer2, flvPlayer3, flvPlayer4, flvPlayer5, flvPlayer6, flvPlayer7, flvPlayer8;
+
+    function play1() {
+        if (flvjs.isSupported()) {
+            let path1 = document.getElementById('video_path1').value;
+            var videoElement1 = document.getElementById('videoElement1');
+
+
+            destruction(flvPlayer1);
+
+            flvPlayer1 = flvjs.createPlayer({
+                type: 'flv',
+                url: path1,
+            });
+            flvPlayer1.attachMediaElement(videoElement1);
+            flvPlayer1.load();
+            flvPlayer1.play();
+        }
+
+    }
+
+    function play2() {
+        if (flvjs.isSupported()) {
+            let path2 = document.getElementById('video_path2').value;
+
+            var videoElement2 = document.getElementById('videoElement2');
+
+		destruction(flvPlayer2);
+
+            flvPlayer2 = flvjs.createPlayer({
+                type: 'flv',
+                url: path2,
+            });
+            flvPlayer2.attachMediaElement(videoElement2);
+            flvPlayer2.load();
+            flvPlayer2.play();
+        }
+    }
+
+
+ function play3() {
+        if (flvjs.isSupported()) {
+            let path2 = document.getElementById('video_path3').value;
+
+            var videoElement3 = document.getElementById('videoElement3');
+
+                destruction(flvPlayer3);
+
+            flvPlayer3 = flvjs.createPlayer({
+                type: 'flv',
+                url: path2,
+            });
+            flvPlayer3.attachMediaElement(videoElement3);
+            flvPlayer3.load();
+            flvPlayer32.play();
+        }
+    }
+
+
+ function play4() {
+        if (flvjs.isSupported()) {
+            let path2 = document.getElementById('video_path4').value;
+
+            var videoElement4 = document.getElementById('videoElement4');
+
+                destruction(flvPlayer4);
+
+            flvPlayer4 = flvjs.createPlayer({
+                type: 'flv',
+                url: path2,
+            });
+            flvPlayer4.attachMediaElement(videoElement4);
+            flvPlayer4.load();
+            flvPlayer4.play();
+        }
+    }
+ function play5() {
+        if (flvjs.isSupported()) {
+            let path2 = document.getElementById('video_path5').value;
+
+            var videoElement5 = document.getElementById('videoElement5');
+
+                destruction(flvPlayer5);
+
+            flvPlayer5 = flvjs.createPlayer({
+                type: 'flv',
+                url: path2,
+            });
+            flvPlayer5.attachMediaElement(videoElement5);
+            flvPlayer5.load();
+            flvPlayer5.play();
+        }
+    }
+ function play6() {
+        if (flvjs.isSupported()) {
+            let path2 = document.getElementById('video_path6').value;
+
+            var videoElement6 = document.getElementById('videoElement6');
+
+                destruction(flvPlayer6);
+
+            flvPlayer6 = flvjs.createPlayer({
+                type: 'flv',
+                url: path,
+            });
+            flvPlayer6.attachMediaElement(videoElement6);
+            flvPlayer6.load();
+            flvPlayer6.play();
+        }
+    }
+ function play7() {
+        if (flvjs.isSupported()) {
+            let path2 = document.getElementById('video_path7').value;
+
+            var videoElement7 = document.getElementById('videoElement7');
+
+                destruction(flvPlayer);
+
+            flvPlayer7 = flvjs.createPlayer({
+                type: 'flv',
+                url: path2,
+            });
+            flvPlayer7.attachMediaElement(videoElement7);
+            flvPlayer7.load();
+            flvPlayer7.play();
+        }
+    }
+ function play8() {
+        if (flvjs.isSupported()) {
+            let path2 = document.getElementById('video_path8').value;
+
+            var videoElement8 = document.getElementById('videoElement8');
+
+                destruction(flvPlayer8);
+
+            flvPlayer8 = flvjs.createPlayer({
+                type: 'flv',
+                url: path2,
+            });
+            flvPlayer8.attachMediaElement(videoElement8);
+            flvPlayer8.load();
+            flvPlayer8.play();
+        }
+    }
+
+
+
+
+    function destruction(player) {
+	if(player){
+        	player.pause();
+        	player.destroy();
+        	player = null;
+        }
+    }
+
+</script>
+</body>
+</html>
