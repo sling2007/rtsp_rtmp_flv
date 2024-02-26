@@ -1,0 +1,60 @@
+
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="/flv/js/flv.js"></script>
+
+</head>
+<body>
+文件地址1（rtsp地址）：<input id="video_path1" type="text" style="width: 300px" value="/flv/fc/rtspToFlv?rtspUrl=rtsp://admin:Marine.123@10.101.24.240:554/Streaming/Channels/101"/>
+<button type="button" onclick="play1()">点击播放</button>
+文件地址2（rtsp地址）：<input id="video_path2" type="text" style="width: 300px" value="/flv/fc/rtspToFlv?rtspUrl=rtsp://admin:Marine.123@10.101.24.240:554/Streaming/Channels/101"/>
+<button type="button"  onclick="play2()">点击播放2</button>
+<hr/>
+<video width="640px" height="360px" id="videoElement1"></video>
+<video width="640px" height="360px" id="videoElement2"></video>
+
+<script>
+
+    //自动播放,浏览器不支持
+    function play1() {
+        if (flvjs.isSupported()) {
+            let path1 = document.getElementById('video_path1').value;
+            var videoElement1 = document.getElementById('videoElement1');
+
+            var flvPlayer1 = flvjs.createPlayer({
+                type: 'flv',
+                url: path1,
+            });
+            flvPlayer1.attachMediaElement(videoElement1);
+            flvPlayer1.load();
+            flvPlayer1.play();
+        }
+
+    }
+
+    //自动播放,浏览器不支持
+    function play2() {
+        if (flvjs.isSupported()) {
+            let path2 = document.getElementById('video_path2').value;
+
+            var videoElement2 = document.getElementById('videoElement2');
+
+            var flvPlayer2 = flvjs.createPlayer({
+                type: 'flv',
+                url: path2,
+            });
+            flvPlayer2.attachMediaElement(videoElement2);
+            flvPlayer2.load();
+            flvPlayer2.play();
+        }
+    }
+</script>
+</body>
+</html>
